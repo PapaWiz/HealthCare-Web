@@ -1,0 +1,126 @@
+    
+include "connection.php";    
+    
+if(isset($_GET['id'])){    
+$sql = "delete from registration where id = '".$_GET['id']."'";    
+$result = mysql_query($sql);    
+}    
+    
+$sql = "select * from registration";    
+$result = mysql_query($sql);    
+?>    
+<html>    
+    <body>    
+        <table width = "100%" border = "1" cellspacing = "1" cellpadding = "1">    
+            <tr>    
+                <td>Id</td>    
+                <td>First Name</td>    
+                <td>Middle Name</td>    
+                <td>Last Name</td>    
+                <td>Password</td>    
+                <td>Confirm Password</td>    
+                <td>Email</td>    
+                <td>Contact No.</td>    
+                <td>Gender</td>    
+                <td>Address</td>    
+                <td>Pincode</td>    
+                <td>City</td>    
+                <td>Country</td>    
+                <td>Skills</td>    
+                <td>Files</td>    
+                <td colspan = "2">Action</td>    
+            </tr>    
+        </table>    
+    </body>    
+</html>    
+Now write a php code in this page only.
+ 
+Note: We have to include connection.php file in all the pages because the connection code has been written in connection.php file only. Until and unless the connection is established, the data can’t be sent to the database. Here I have written an IF-ELSE condition to check whether any id is coming or not.
+ 
+The isset () function is used to check whether a variable is set or not.
+ 
+Then I have written a query for delete and saved in a local variable named $sql.
+ 
+After that mysql_query() is used to execute the query written above. Again we have written a query to select all the elements of the table created.
+<?php    
+    
+while($row = mysql_fetch_object($result)){    
+    
+    
+?>  
+    <tr>  
+        <td>  
+            <?php echo $row->id;?>  
+        </td>  
+        <td>  
+            <?php echo $row->fname;?>  
+        </td>  
+        <td>  
+            <?php echo $row->mname;?>  
+        </td>  
+        <td>  
+            <?php echo $row->lname;?>  
+        </td>  
+        <td>  
+            <?php echo $row->pwd;?>  
+        </td>  
+        <td>  
+            <?php echo $row->cnf;?>  
+        </td>  
+        <td>  
+            <?php echo $row->mail;?>  
+        </td>  
+        <td>  
+            <?php echo $row->number;?>  
+        </td>  
+        <td>G  
+            <?php echo $row->sex;?>  
+        </td>  
+        <td>  
+            <?php echo $row->address;?>  
+        </td>  
+        <td>  
+            <?php echo $row->code;?>  
+        </td>  
+        <td>  
+            <?php echo $row->city;?>  
+        </td>  
+        <td>  
+            <?php echo $row->country;?>  
+        </td>  
+        <td>  
+            <?php echo $row->skills;?>  
+        </td>  
+        <td>  
+            <?php echo $row->attach_file;?>  
+        </td>  
+        <td> <a href="listing.php?id =     
+            <?php echo $row->id;?>" onclick="return confirm('Are You Sure')">Delete    
+        </a> | <a href="index.php?id =     
+            <?php echo $row->id;?>" onclick="return confirm('Are You Sure')">Edit    
+        </a> </td>  
+        <tr>  
+            <? php } ?>  
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="col-md-12">
+        <h1 class="h1">Health<span>Care</span>-O</h1>
+        <ul>
+            <li><a href="#" >Login</a></li>
+            <li><a href="#" >Sign up</a></li>
+            <li><a href="Patient Details.html">Patient Details</a></li>
+            <li><a href="forms.html" target="blank_" >FeedBacks</a></li>
+            <li><a href="About.html" >About The Page</a></li>
+        </ul>
+    </header>
+    
